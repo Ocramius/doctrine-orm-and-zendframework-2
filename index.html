@@ -283,9 +283,7 @@ class AlbumTable {
     return array(
         'factories' =&gt; array(
             'Album\Model\AlbumTable' =&gt;  function($sm) {
-                $tableGateway = $sm-&gt;get('AlbumTableGateway');
-                $table = new AlbumTable($tableGateway);
-                return $table;
+                return new AlbumTable($sm-&gt;get('AlbumTableGateway'));
             },
             'AlbumTableGateway' =&gt; function ($sm) {
                 $dbAdapter = $sm-&gt;get('Zend\Db\Adapter\Adapter');
@@ -461,19 +459,22 @@ class AlbumTable {
                     -->
                 </section>
                 <section>
-                    <h2>What is <span class="doctrine-color">Doctrine ORM</span>?</h2>
-                    <p class="fragment">
-                        <span class="doctrine-color">Doctrine ORM</span> is an Object Relational Mapper
-                    </p>
-                    <p class="fragment">
+                    <h2>What about <span class="doctrine-color">Doctrine ORM</span>?</h2>
+                </section>
+                <section>
+                    <p>
                         It is inspired by Hibernate and the <abbr title="Java Persistece API">JPA</abbr> (JSR-317)
                     </p>
-                    <p class="fragment">
+                </section>
+                <section>
+                    <p>
                         It is based on a
                         <abbr title="Database Abstraction Layer" class="doctrine-color">DBAL</abbr>
                         (DataBase Abstraction Layer)
-                    </p>
-                    <p class="fragment">
+                    </p> 
+                </section>
+                <section>
+                    <p>
                         Allows saving and loading <abbr title="Plain Old PHP Object">POPO</abbr> with an SQL DB
                     </p>
 
@@ -481,6 +482,67 @@ class AlbumTable {
                         Also consider that Doctrine ORM abstract the underlying SQL dialect of the DB platform you are
                         using, so it's possible for you to switch DB vendor from a day to another
                     </aside>
+                </section>
+                <section>
+                    <p>But most importantly...</p>
+                </section>
+                <section>
+                    <h2>
+                        An 
+                        <br/>
+                        <span class="doctrine-color">
+                            Object
+                            <br/>
+                            Relational
+                            <br/>
+                            Mapper
+                        </span>
+                    </h2>
+                </section>
+                <section>
+                    <h2>
+                        An 
+                        <br/>
+                        <span class="doctrine-color">
+                            Object
+                            <br/>
+                            <span style="font-size: 120%">Relational</span>
+                            <br/>
+                            Mapper
+                        </span>
+                    </h2>
+                </section>
+                <section>
+                    <h2>
+                        An 
+                        <br/>
+                        <span class="doctrine-color">
+                            Object
+                            <br/>
+                            <span style="font-size: 160%">Relational</span>
+                            <br/>
+                            Mapper
+                        </span>
+                    </h2>
+                </section>
+                <section>
+                    <h2>
+                        An 
+                        <br/>
+                        <span class="doctrine-color">
+                            Object
+                            <br/>
+                            <span style="font-size: 200%">Relational</span>
+                            <br/>
+                            Mapper
+                        </span>
+                    </h2>
+                </section>
+                <section>
+                    <p>Remember this guy?</p>
+                </section>
+                <section>
+                    <img src="assets/img/example-eer-diagram.png" alt="Example (relatively simple) EER Diagram"/>
                 </section>
 
                 <section>
@@ -530,6 +592,7 @@ class AlbumTable {
 
                 <section data-state="soothe">
                     <p>
+                        <!-- @todo consider using a better diagram? -->
                         <img src="http://yuml.me/diagram/dir:TB;/class/[doctrine/common{bg:orange}]<-.- [doctrine/doctrine-module{bg:green}],[doctrine/orm{bg:orange}]<-.- [doctrine/doctrine-orm-module{bg:green}],[doctrine/mongodb-odm{bg:orange}]<-.- [doctrine/doctrine-mongo-odm-module{bg:green}],[doctrine/doctrine-module{bg:green}]<-.- [doctrine/doctrine-orm-module{bg:green}],[doctrine/doctrine-module{bg:green}]<-.- [doctrine/doctrine-mongo-odm-module{bg:green}],[doctrine/common{bg:orange}]<-.- [doctrine/mongodb-odm{bg:orange}],[doctrine/common{bg:orange}]<-.- [doctrine/orm{bg:orange}]">
                     </p>
                 </section>
@@ -598,6 +661,16 @@ class User {
     // getters/setters
 }</code></pre>
                 </section>
+                
+                <section>
+                    <h2><span class="doctrine-color">Annotations?</span></h2>
+                    <h2 class="fragment">Blasphemer!</h2>
+                    <p class="fragment">(stone throwing here)</p>
+                </section>
+                
+                <section>
+                    <p>Annotations are actually OK for non-reusable code</p>
+                </section>
 
                 <section>
                     <h2>Configure <span class="doctrine-color">mappings</span></h2>
@@ -644,6 +717,7 @@ class User {
                 <section>
                     <h2>Validate <span class="doctrine-color">mappings</span></h2>
                     <pre><code contenteditable>php public/index.php orm:validate-schema</code></pre>
+                    <!-- @todo find the "so wow" meme with the dog -->
                     <p>
                         <img src="assets/img/validate-mappings.png" alt="Validate schema mappings"/>
                     </p>
