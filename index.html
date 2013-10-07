@@ -267,7 +267,7 @@ class AlbumTable {
     }
 
     public function saveAlbum(Album $album) {
-        $this-&gt;gw-&gt;insert($data); // (or update!)
+        $this-&gt;gw-&gt;insert($album->toArray()); // (or update!)
     }
 
     public function deleteAlbum($id) {
