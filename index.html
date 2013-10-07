@@ -1183,14 +1183,7 @@ $recentVisitors = $collection->matching($criteria);</code></pre>
                 </section>
 
                 <section>
-                    <h2>Inject the <span class="doctrine-color">Object Manager</span></h2>
-                            <pre><code contenteditable>'factories' => array(
-    'my_service' => function ($sl) {
-        $objectManager = $sl->get('Doctrine\ORM\EntityManager');
-
-        return new MyService($objectManager);
-    }
-),</code></pre>
+                    <h2>Inject the <span class="doctrine-color">Object Manager</span></h2>                
                     <pre><code contenteditable>class MyService
 {
     public function __construct(ObjectManager $objectManager)
@@ -1198,6 +1191,13 @@ $recentVisitors = $collection->matching($criteria);</code></pre>
         // [...]
     }
 }</code></pre>
+                    <pre class="fragment"><code contenteditable>'factories' => array(
+    'my_service' => function ($sl) {
+        $objectManager = $sl->get('Doctrine\ORM\EntityManager');
+
+        return new MyService($objectManager);
+    }
+),</code></pre>
                 </section>
 
                 <section>
